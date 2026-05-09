@@ -1,0 +1,66 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+  <Frame
+    name="AuctionatorSellingTabFrameTemplate"
+    virtual="true"
+    parentKey="AuctionatorSellingFrame"
+    mixin="AuctionatorSellingTabMixin"
+    hidden="true"
+  >
+    <Scripts>
+      <OnLoad method="OnLoad" />
+      <OnShow method="OnShow" />
+      <OnUpdate method="OnUpdate" />
+      <OnHide method="OnHide" />
+    </Scripts>
+
+    <Anchors>
+      <Anchor point="TOP"/>
+      <Anchor point="LEFT" x="4"/>
+      <Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" x="-4" y="27" />
+    </Anchors>
+
+    <Frames>
+      <!-- Kept so the template still matches the original Auctionator structure.
+           The Lua patch intentionally does not initialize/show this panel. -->
+      <Frame parentKey="BagDataProvider" mixin="AuctionatorBagDataProviderMixin">
+        <Scripts>
+          <OnLoad method="OnLoad"/>
+          <OnEvent method="OnEvent"/>
+          <OnUpdate method="OnUpdate"/>
+          <OnShow method="OnShow"/>
+          <OnHide method="OnHide"/>
+        </Scripts>
+      </Frame>
+
+      <Frame parentKey="SaleItemFrame" inherits="AuctionatorSaleItemFrameTemplate">
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" y="-38" />
+          <Anchor point="LEFT" relativePoint="LEFT" x="70" />
+        </Anchors>
+      </Frame>
+
+      <!-- Hidden by Main.lua. Left here to avoid missing-template/key errors. -->
+      <Frame parentKey="BagListing" inherits="AuctionatorSellingBagFrame" hidden="true">
+        <Anchors>
+          <Anchor point="TOPLEFT" x="4" y="-180" />
+          <Anchor point="BOTTOM" y="5" />
+        </Anchors>
+      </Frame>
+
+      <!-- Hidden by Main.lua. Left here to avoid missing-template/key errors. -->
+      <Frame parentKey="BagInset" inherits="AuctionatorInsetLeaveScrollSpaceTemplate" hidden="true">
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeKey="$parent.BagListing" x="-5" y="5"/>
+          <Anchor point="BOTTOMRIGHT" relativeKey="$parent.BagListing" y="-3" x="25"/>
+        </Anchors>
+      </Frame>
+
+      <Frame parentKey="BuyFrame" inherits="AuctionatorBuyFrameTemplateForSelling">
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeKey="$parent" relativePoint="TOPLEFT" x="16" y="-150"/>
+          <Anchor point="BOTTOMRIGHT" relativeKey="$parent" relativePoint="BOTTOMRIGHT" x="-16" y="38"/>
+        </Anchors>
+      </Frame>
+    </Frames>
+  </Frame>
+</Ui>
