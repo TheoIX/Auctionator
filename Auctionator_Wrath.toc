@@ -1,7 +1,7 @@
 ## Interface: 30400
 ## Title: Auctionator
 ## Version: 9.2.31
-## Author: Borjamacare, plusmouse
+## Author: Borjamacare, plusmouse, TheoIX
 ## X-Website: http://mods.curse.com/addons/wow/auctionator
 ## X-Localizations: enUS, itIT, deDE, ruRU, koKR, frFR, esES, esMX, zhTW, ptBR, zhCN
 ## Notes: A lightweight addon that makes it easy and fast to buy, sell and manage auctions
